@@ -5,307 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEDxZU: BEYOND Limits</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --ted-red: #EB0028;
-            --black: #000000;
-            --white: #FFFFFF;
-            --dark-grey: #1a1a1a;
-            --light-grey: #f4f4f4;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
-            background-color: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, .brand {
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navbar */
-        nav {
-            padding: 20px 0;
-            position: absolute;
-            width: 100%;
-            z-index: 100;
-            background: transparent;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 50px;
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Asset/Main.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        #hero h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        #hero .theme-tag {
-            color: var(--ted-red);
-            font-size: 1.5rem;
-            display: block;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        #hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            background-color: var(--ted-red);
-            color: var(--white);
-            padding: 15px 35px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 4px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            margin: 5px;
-        }
-
-        .cta-btn:hover {
-            background-color: #c40022;
-            transform: translateY(-3px);
-        }
-
-        /* Vision Section */
-        #vision {
-            padding: 100px 0;
-            background-color: var(--white);
-            text-align: center;
-        }
-
-        #vision h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-        }
-
-        #vision h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--ted-red);
-        }
-
-        .vision-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-            text-align: right;
-        }
-
-        .vision-item h3 {
-            color: var(--ted-red);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Speakers Section */
-        #speakers {
-            padding: 100px 0;
-            background-color: var(--dark-grey);
-            color: var(--white);
-        }
-
-        #speakers h2 {
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        .speakers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .speaker-card {
-            background-color: #222;
-            padding: 40px;
-            border-radius: 8px;
-            border-top: 5px solid var(--ted-red);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .speaker-card:hover {
-            transform: translateY(-10px);
-            background-color: #2a2a2a;
-        }
-
-        .speaker-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--ted-red);
-        }
-
-        .speaker-title {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #aaa;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .talk-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-        }
-
-        .speaker-points {
-            list-style: none;
-            font-size: 0.95rem;
-        }
-
-        .speaker-points li {
-            position: relative;
-            padding-right: 20px;
-            margin-bottom: 10px;
-        }
-
-        .speaker-points li::before {
-            content: '•';
-            position: absolute;
-            right: 0;
-            color: var(--ted-red);
-            font-weight: bold;
-        }
-        
-        .view-details-cue {
-            margin-top: auto;
-            padding-top: 20px;
-            color: var(--ted-red);
-            font-weight: bold;
-            text-align: left;
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
-        
-        .speaker-card:hover .view-details-cue {
-            transform: translateX(-5px);
-        }
-
-        /* Footer */
-        footer {
-            padding: 50px 0;
-            background-color: var(--black);
-            color: #777;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        footer img {
-            height: 40px;
-            margin-bottom: 20px;
-            filter: grayscale(1);
-            opacity: 0.5;
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 2.5rem; }
-            .speakers-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
         <div class="container nav-content">
-            <img src="Asset/logo-white.png" alt="TEDxZU Logo" class="logo">
-            <ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+            <a href="index.html">
+                <img src="Asset/logo-white.png" alt="TEDxZU Logo" class="logo">
+            </a>
+            <ul class="nav-links">
                 <li>
-                    <a href="TEDxZU_Lectures_Schedule.html" style="color: #fff; text-decoration: none; font-weight: bold; background: var(--ted-red); padding: 10px 20px; border-radius: 4px; transition: 0.3s;">عرض جدول المحاضرات</a>
+                    <a href="TEDxZU_Lectures_Schedule.html" class="ted-btn">جدول المحاضرات</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <section id="hero">
-        <div class="container">
+    <section id="hero-index" class="hero-section large">
+        <div class="container hero-content">
             <span class="theme-tag">مؤتمر TEDxZU الأول</span>
             <h1>BEYOND Limits</h1>
             <p>نحن لا نتحدث عن المستحيل، بل نتحدث عن المرحلة التي تلي المستحيل. انضم إلينا في رحلة استكشاف ما وراء الحدود في جامعة الزرقاء.</p>
-            <a href="#speakers" class="cta-btn">اكتشف المتحدثين</a>
-            <a href="TEDxZU_Lectures_Schedule.html" class="cta-btn" style="background-color: #333;">عرض جدول المحاضرات</a>
+            <div class="hero-actions">
+                <a href="#speakers" class="ted-btn secondary">اكتشف المتحدثين</a>
+                <a href="TEDxZU_Lectures_Schedule.html" class="ted-btn">عرض الجدول</a>
+            </div>
         </div>
     </section>
 
     <section id="vision">
         <div class="container">
-            <h2>رؤية المؤتمر</h2>
+            <div class="section-header">
+                <h2>رؤية المؤتمر</h2>
+            </div>
             <div class="vision-grid">
-                <div class="vision-item">
-                    <h3>فلسفة الشعار</h3>
+                <div class="ted-card interactive">
+                    <h3 class="card-highlight">فلسفة الشعار</h3>
                     <p>الحدود ليست جدرانًا، بل هي قيود نفسية واجتماعية. نسعى لتجاوز الذات، تجاوز التقليد، وتجاوز الظروف لخلق حلول مبتكرة في التكنولوجيا والمجتمع.</p>
                 </div>
-                <div class="vision-item">
-                    <h3>أهدافنا</h3>
+                <div class="ted-card interactive">
+                    <h3 class="card-highlight">أهدافنا</h3>
                     <p>تمكين الشباب، نشر المعرفة في مجالات مثل الأمن السيبراني، تعزيز التواصل الفكري، وإبراز مدينة الزرقاء كمركز للإبداع والابتكار في الأردن.</p>
                 </div>
-                <div class="vision-item">
-                    <h3>تجربة الحضور</h3>
+                <div class="ted-card interactive">
+                    <h3 class="card-highlight">تجربة الحضور</h3>
                     <p>ليست مجرد خطابات، بل تجربة غامرة تشمل منطقة التواصل، العروض الفنية الإبداعية، والمختبرات التفاعلية للذكاء الاصطناعي.</p>
                 </div>
             </div>
@@ -314,123 +60,125 @@
 
     <section id="speakers">
         <div class="container">
-            <h2>المتحدثون</h2>
+            <div class="section-header">
+                <h2>المتحدثون</h2>
+            </div>
             <div class="speakers-grid">
                 <!-- Speaker 1 -->
-                <a href="lecture_details.html?id=haiel" class="speaker-card">
-                    <div class="speaker-name">د. هايل الخفاجة</div>
-                    <span class="speaker-title">عميد كلية تكنولوجيا المعلومات</span>
-                    <div class="talk-title">ما وراء المدرج الجامعي (Beyond the Lecture Hall)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=haiel" class="ted-card">
+                    <div class="card-title">د. هايل الخفاجة</div>
+                    <span class="card-subtitle">عميد كلية تكنولوجيا المعلومات</span>
+                    <div class="card-highlight">ما وراء المدرج الجامعي <span class="ltr-text">(Beyond the Lecture Hall)</span></div>
+                    <ul>
                         <li>الجامعة ليست مجرد محطة للحصول على شهادة، بل هي "مسرّعة أعمال" شخصية.</li>
                         <li>كيفية بناء "الهوية المهنية" قبل استلام ورقة التخرج.</li>
                         <li>استثمار الفرص التقنية والبحثية لتجاوز حدود "الباحث عن عمل" إلى "صانع الفرص".</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 2 -->
-                <a href="lecture_details.html?id=mohammed" class="speaker-card">
-                    <div class="speaker-name">د. محمد الجعيدي</div>
-                    <span class="speaker-title">رئيس قسم الأمن السيبراني</span>
-                    <div class="talk-title">خلف الشاشة: حدود الوعي الرقمي (Beyond the Screen)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=mohammed" class="ted-card">
+                    <div class="card-title">د. محمد الجعيدي</div>
+                    <span class="card-subtitle">رئيس قسم الأمن السيبراني</span>
+                    <div class="card-highlight">خلف الشاشة: حدود الوعي الرقمي <span class="ltr-text">(Beyond the Screen)</span></div>
+                    <ul>
                         <li>لماذا نعتبر "الإنسان" هو أضعف وأقوى حلقة في الأمن السيبراني في آن واحد؟</li>
                         <li>بناء "عقلية أمنية" في عصر الذكاء الاصطناعي وتجاوز فكرة كلمات المرور التقليدية.</li>
                         <li>كيف نحمي حدودنا الخاصة في عالم رقمي لا يعترف بالحدود؟</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 3 -->
-                <a href="lecture_details.html?id=rawda" class="speaker-card">
-                    <div class="speaker-name">روضة الرماحي</div>
-                    <span class="speaker-title">أخصائية وباحثة في الجوانب النفسية</span>
-                    <div class="talk-title">الجدران غير المرئية (Beyond Inner Walls)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=rawda" class="ted-card">
+                    <div class="card-title">روضة الرماحي</div>
+                    <span class="card-subtitle">أخصائية وباحثة في الجوانب النفسية</span>
+                    <div class="card-highlight">الجدران غير المرئية <span class="ltr-text">(Beyond Inner Walls)</span></div>
+                    <ul>
                         <li>تفكيك القيود النفسية الموروثة والمكتسبة التي تمنعنا من التجربة.</li>
                         <li>سيكولوجية التحرر: الانطلاق في مسارات جديدة دون خوف من الفشل.</li>
                         <li>تحويل العقل من سجن للمخاوف إلى فضاء للإبداع والنمو.</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 4 -->
-                <a href="lecture_details.html?id=issa" class="speaker-card">
-                    <div class="speaker-name">عيسى عساف</div>
-                    <span class="speaker-title">متحدث تحفيزي</span>
-                    <div class="talk-title">كيمياء التغيير (Beyond Negativity)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=issa" class="ted-card">
+                    <div class="card-title">عيسى عساف</div>
+                    <span class="card-subtitle">متحدث تحفيزي</span>
+                    <div class="card-highlight">كيمياء التغيير <span class="ltr-text">(Beyond Negativity)</span></div>
+                    <ul>
                         <li>فن إعادة تدوير "الطاقة السلبية" وتحويلها إلى وقود للإنجاز.</li>
                         <li>المنهجية المثالية لإطلاق العنان للنفس بعيداً عن الإحباطات المحيطة.</li>
                         <li>قصص واقعية عن لحظات التحول من الانغلاق السلبي إلى الانفتاح الإيجابي.</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 5 -->
-                <a href="lecture_details.html?id=ali" class="speaker-card">
-                    <div class="speaker-name">علي علوان</div>
-                    <span class="speaker-title">متحدث في تطوير الذات</span>
-                    <div class="talk-title">الانبثاق: القوة من رحم المعاناة (Beyond Hardship)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=ali" class="ted-card">
+                    <div class="card-title">علي علوان</div>
+                    <span class="card-subtitle">متحدث في تطوير الذات</span>
+                    <div class="card-highlight">الانبثاق: القوة من رحم المعاناة <span class="ltr-text">(Beyond Hardship)</span></div>
+                    <ul>
                         <li>كيف تكون الأزمات هي "المختبر الحقيقي" لإنتاج أقصى طاقات الإنسان.</li>
                         <li>استراتيجيات الحفاظ على "أعلى جودة أداء" في ظل الظروف غير المريحة.</li>
                         <li>تجاوز حدود "الضحية" إلى دور "القائد" لظروفه الخاصة.</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 6 -->
-                <a href="lecture_details.html?id=amr" class="speaker-card">
-                    <div class="speaker-name">د. عمرو المداذحة</div>
-                    <span class="speaker-title">خبير في التواصل والخطابة</span>
-                    <div class="talk-title">ما وراء الصمت: صوتك هو بصمتك (Beyond Silence)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=amr" class="ted-card">
+                    <div class="card-title">د. عمرو المداذحة</div>
+                    <span class="card-subtitle">خبير في التواصل والخطابة</span>
+                    <div class="card-highlight">ما وراء الصمت: صوتك هو بصمتك <span class="ltr-text">(Beyond Silence)</span></div>
+                    <ul>
                         <li>الارتجال والحديث أمام الجمهور ليس "موهبة" بل هو "قرار" بإثبات الوجود.</li>
                         <li>كيف تكسر حدود الخجل لتصبح رسالتك مسموعة ومؤثرة.</li>
                         <li>أدوات تقوية الشخصية من خلال التعبير الحر والخطابة الواثقة.</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 7 -->
-                <a href="lecture_details.html?id=dania" class="speaker-card">
-                    <div class="speaker-name">دانيا الغرايبة</div>
-                    <span class="speaker-title">متخصصة HR وصانعة محتوى - الكنبة مع فريودة</span>
-                    <div class="talk-title">ما وراء السيرة الذاتية (Beyond the Resume)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=dania" class="ted-card">
+                    <div class="card-title">دانيا الغرايبة</div>
+                    <span class="card-subtitle">متخصصة HR وصانعة محتوى - الكنبة مع فريودة</span>
+                    <div class="card-highlight">ما وراء السيرة الذاتية <span class="ltr-text">(Beyond the Resume)</span></div>
+                    <ul>
                         <li>الجانب الإنساني في العمل: لماذا لا تكفي المهارات التقنية وحدها؟</li>
                         <li>دروس من الكتب والبودكاست: كيف تشكل القصص وعينا بالموارد البشرية.</li>
                         <li>اكتشاف الشغف الحقيقي بعيداً عن القوالب الوظيفية الجامدة.</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 8 -->
-                <a href="lecture_details.html?id=assar" class="speaker-card">
-                    <div class="speaker-name">د. عصار</div>
-                    <span class="speaker-title">متحدث خبير</span>
-                    <div class="talk-title">فخ المنطقة الآمنة (Beyond the Comfort Zone)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=assar" class="ted-card">
+                    <div class="card-title">د. عصار</div>
+                    <span class="card-subtitle">متحدث خبير</span>
+                    <div class="card-highlight">فخ المنطقة الآمنة <span class="ltr-text">(Beyond the Comfort Zone)</span></div>
+                    <ul>
                         <li>لماذا تشكل "دائرة الراحة" أكبر عائق أمام النسخة الأفضل منك؟</li>
                         <li>سيكولوجية التغيير: تحويل "عدم الارتياح" إلى مؤشر للنمو.</li>
                         <li>خطوات عملية للخروج من النمط التكراري والوصول لمرحلة الإنجاز القصوى.</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
 
                 <!-- Speaker 9 -->
-                <a href="lecture_details.html?id=roaa" class="speaker-card">
-                    <div class="speaker-name">رؤى سمارة</div>
-                    <span class="speaker-title">متحدثة ملهمة</span>
-                    <div class="talk-title">متجاوزةً التوقعات (Beyond Expectations)</div>
-                    <ul class="speaker-points">
+                <a href="lecture_details.html?id=roaa" class="ted-card">
+                    <div class="card-title">رؤى سمارة</div>
+                    <span class="card-subtitle">متحدثة ملهمة</span>
+                    <div class="card-highlight">متجاوزةً التوقعات <span class="ltr-text">(Beyond Expectations)</span></div>
+                    <ul>
                         <li>الفرق بين ما "يتوقعه" المجتمع منك وما "تستطيعه" أنت حقاً.</li>
                         <li>رفض القوالب الجاهزة لتصميم نسختك الفريدة والأفضل.</li>
                         <li>تحويل ضغط التوقعات الخارجية إلى طاقة داخلية تدفعك لتجاوز حدودك.</li>
                     </ul>
-                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    <div class="card-action-text">عرض التفاصيل &larr;</div>
                 </a>
             </div>
         </div>
@@ -438,9 +186,9 @@
 
     <footer>
         <div class="container">
-            <img src="Asset/logo-black.png" alt="TEDxZU Logo">
+            <img src="Asset/logo-white.png" alt="TEDxZU Logo">
             <p class="copyright">تم تطوير هذه الصفحة لمؤتمر TEDxZU: BEYOND Limits &copy; 2026</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">هذا الحدث مرخص بشكل مستقل من TED</p>
+            <p class="footer-disclaimer">هذا الحدث مرخص بشكل مستقل من TED</p>
         </div>
     </footer>
 

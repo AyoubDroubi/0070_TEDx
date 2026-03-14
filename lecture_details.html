@@ -5,232 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفاصيل المحاضرة - TEDxZU BEYOND Limits</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --ted-red: #EB0028;
-            --black: #000000;
-            --white: #FFFFFF;
-            --dark-grey: #1a1a1a;
-            --medium-grey: #333333;
-            --light-grey: #f4f4f4;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
-            background-color: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navbar */
-        nav {
-            background-color: var(--black);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 40px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            background-color: var(--medium-grey);
-            padding: 8px 18px;
-            border-radius: 4px;
-        }
-
-        .nav-links a.primary-btn {
-            background-color: var(--ted-red);
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Banner */
-        .lecture-hero {
-            background-color: var(--ted-red);
-            background-image: linear-gradient(135deg, rgba(235,0,40,1) 0%, rgba(150,0,25,1) 100%);
-            color: var(--white);
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .lecture-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            max-width: 1000px;
-            margin: 0 auto;
-            line-height: 1.3;
-        }
-
-        /* Two-Column Layout */
-        .details-section {
-            padding: 80px 0;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-        }
-
-        /* Profile Column */
-        .profile-card {
-            background-color: var(--light-grey);
-            padding: 50px 30px;
-            border-radius: 12px;
-            border-top: 6px solid var(--ted-red);
-            text-align: center;
-            height: fit-content;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .profile-card h2 {
-            font-size: 2.2rem;
-            color: var(--black);
-            margin-bottom: 10px;
-            font-weight: 900;
-        }
-
-        .profile-card .title {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 30px;
-            display: block;
-            font-weight: 600;
-        }
-
-        .time-slot {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--black);
-            color: var(--white);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        /* Lecture Content Column */
-        .lecture-content h3 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--black);
-            font-weight: 900;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .lecture-content h3::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            right: 0;
-            width: 60px;
-            height: 5px;
-            background-color: var(--ted-red);
-        }
-
-        .points-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .points-list li {
-            position: relative;
-            padding-right: 40px;
-            margin-bottom: 25px;
-            font-size: 1.25rem;
-            color: var(--medium-grey);
-            line-height: 1.8;
-            background: var(--light-grey);
-            padding: 25px 30px 25px 25px;
-            border-radius: 8px;
-            border-right: 5px solid var(--ted-red);
-            transition: transform 0.3s ease;
-        }
-        
-        .points-list li:hover {
-            transform: translateX(-5px);
-        }
-
-        /* Error Message */
-        #error-msg {
-            display: none;
-            text-align: center;
-            padding: 150px 20px;
-        }
-        
-        #error-msg h2 {
-            color: var(--ted-red);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 900;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--black);
-            padding: 50px 0;
-            text-align: center;
-            color: #888;
-            margin-top: 60px;
-        }
-
-        footer img {
-            height: 40px;
-            margin-bottom: 20px;
-            opacity: 0.6;
-        }
-
-        @media (max-width: 900px) {
-            .details-section {
-                grid-template-columns: 1fr;
-            }
-            .lecture-hero h1 {
-                font-size: 2.2rem;
-            }
-            .lecture-content h3 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -242,15 +19,15 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="TEDxZU_Lectures_Schedule.html" class="primary-btn">العودة للجدول</a></li>
+                <li><a href="TEDxZU_Lectures_Schedule.html" class="ted-btn">العودة للجدول</a></li>
             </ul>
         </div>
     </nav>
 
     <div id="content-container">
         <!-- Hero Banner -->
-        <section class="lecture-hero">
-            <div class="container">
+        <section class="hero-section medium">
+            <div class="container hero-content">
                 <h1 id="dynamic-talk-title">جاري تحميل المحاضرة...</h1>
             </div>
         </section>
@@ -258,16 +35,16 @@
         <!-- Details Section -->
         <section class="container details-section">
             <!-- Profile Column -->
-            <div class="profile-card">
-                <h2 id="dynamic-speaker-name">...</h2>
-                <span class="title" id="dynamic-speaker-title">...</span>
-                <div class="time-slot" id="dynamic-time-slot">...</div>
+            <div class="ted-card interactive">
+                <h2 id="dynamic-speaker-name" class="card-title">...</h2>
+                <span id="dynamic-speaker-title" class="card-subtitle">...</span>
+                <div class="time-badge" id="dynamic-time-slot">...</div>
             </div>
 
             <!-- Points Column -->
             <div class="lecture-content">
                 <h3>محاور المحاضرة</h3>
-                <ul class="points-list" id="dynamic-points">
+                <ul id="dynamic-points">
                     <!-- Points will be injected here via JS -->
                 </ul>
             </div>
@@ -278,7 +55,7 @@
     <div id="error-msg" class="container">
         <h2>عذراً، لم يتم العثور على المحاضرة.</h2>
         <br>
-        <a href="TEDxZU_Lectures_Schedule.html" style="display:inline-block; padding:15px 30px; background:var(--ted-red); color:#fff; text-decoration:none; border-radius:4px; font-weight:bold; font-size: 1.1rem;">العودة إلى جدول المحاضرات</a>
+        <a href="TEDxZU_Lectures_Schedule.html" class="ted-btn">العودة إلى جدول المحاضرات</a>
     </div>
 
     <!-- Footer -->
@@ -286,6 +63,7 @@
         <div class="container">
             <img src="Asset/logo-white.png" alt="TEDxZU Logo">
             <p>تم تطوير هذه الصفحة لمؤتمر TEDxZU: BEYOND Limits &copy; 2026</p>
+            <p class="footer-disclaimer">هذا الحدث مرخص بشكل مستقل من TED</p>
         </div>
     </footer>
 
@@ -295,8 +73,8 @@
             "haiel": {
                 name: "د. هايل الخفاجة",
                 title: "عميد كلية تكنولوجيا المعلومات",
-                talkTitle: "ما وراء المدرج الجامعي (Beyond the Lecture Hall)",
-                timeSlot: "10:00 AM - 10:30 AM",
+                talkTitle: "ما وراء المدرج الجامعي <span class='ltr-text'>(Beyond the Lecture Hall)</span>",
+                timeSlot: "<span class='ltr-text'>10:00 AM - 10:30 AM</span>",
                 points: [
                     "الجامعة ليست مجرد محطة للحصول على شهادة، بل هي \"مسرّعة أعمال\" شخصية.",
                     "كيفية بناء \"الهوية المهنية\" قبل استلام ورقة التخرج.",
@@ -306,8 +84,8 @@
             "mohammed": {
                 name: "د. محمد الجعيدي",
                 title: "رئيس قسم الأمن السيبراني",
-                talkTitle: "خلف الشاشة: حدود الوعي الرقمي (Beyond the Screen)",
-                timeSlot: "10:30 AM - 11:00 AM",
+                talkTitle: "خلف الشاشة: حدود الوعي الرقمي <span class='ltr-text'>(Beyond the Screen)</span>",
+                timeSlot: "<span class='ltr-text'>10:30 AM - 11:00 AM</span>",
                 points: [
                     "لماذا نعتبر \"الإنسان\" هو أضعف وأقوى حلقة في الأمن السيبراني في آن واحد؟",
                     "بناء \"عقلية أمنية\" في عصر الذكاء الاصطناعي وتجاوز فكرة كلمات المرور التقليدية.",
@@ -317,8 +95,8 @@
             "rawda": {
                 name: "روضة الرماحي",
                 title: "أخصائية وباحثة في الجوانب النفسية",
-                talkTitle: "الجدران غير المرئية (Beyond Inner Walls)",
-                timeSlot: "11:00 AM - 11:30 AM",
+                talkTitle: "الجدران غير المرئية <span class='ltr-text'>(Beyond Inner Walls)</span>",
+                timeSlot: "<span class='ltr-text'>11:00 AM - 11:30 AM</span>",
                 points: [
                     "تفكيك القيود النفسية الموروثة والمكتسبة التي تمنعنا من التجربة.",
                     "سيكولوجية التحرر: الانطلاق في مسارات جديدة دون خوف من الفشل.",
@@ -328,8 +106,8 @@
             "issa": {
                 name: "عيسى عساف",
                 title: "متحدث تحفيزي",
-                talkTitle: "كيمياء التغيير (Beyond Negativity)",
-                timeSlot: "11:30 AM - 12:00 PM",
+                talkTitle: "كيمياء التغيير <span class='ltr-text'>(Beyond Negativity)</span>",
+                timeSlot: "<span class='ltr-text'>11:30 AM - 12:00 PM</span>",
                 points: [
                     "فن إعادة تدوير \"الطاقة السلبية\" وتحويلها إلى وقود للإنجاز.",
                     "المنهجية المثالية لإطلاق العنان للنفس بعيداً عن الإحباطات المحيطة.",
@@ -339,8 +117,8 @@
             "ali": {
                 name: "علي علوان",
                 title: "متحدث في تطوير الذات",
-                talkTitle: "الانبثاق: القوة من رحم المعاناة (Beyond Hardship)",
-                timeSlot: "12:30 PM - 1:00 PM",
+                talkTitle: "الانبثاق: القوة من رحم المعاناة <span class='ltr-text'>(Beyond Hardship)</span>",
+                timeSlot: "<span class='ltr-text'>12:30 PM - 1:00 PM</span>",
                 points: [
                     "كيف تكون الأزمات هي \"المختبر الحقيقي\" لإنتاج أقصى طاقات الإنسان.",
                     "استراتيجيات الحفاظ على \"أعلى جودة أداء\" في ظل الظروف غير المريحة.",
@@ -350,8 +128,8 @@
             "amr": {
                 name: "د. عمرو المداذحة",
                 title: "خبير في التواصل والخطابة",
-                talkTitle: "ما وراء الصمت: صوتك هو بصمتك (Beyond Silence)",
-                timeSlot: "1:00 PM - 1:30 PM",
+                talkTitle: "ما وراء الصمت: صوتك هو بصمتك <span class='ltr-text'>(Beyond Silence)</span>",
+                timeSlot: "<span class='ltr-text'>1:00 PM - 1:30 PM</span>",
                 points: [
                     "الارتجال والحديث أمام الجمهور ليس \"موهبة\" بل هو \"قرار\" بإثبات الوجود.",
                     "كيف تكسر حدود الخجل لتصبح رسالتك مسموعة ومؤثرة.",
@@ -361,8 +139,8 @@
             "dania": {
                 name: "دانيا الغرايبة",
                 title: "متخصصة HR وصانعة محتوى - الكنبة مع فريودة",
-                talkTitle: "ما وراء السيرة الذاتية (Beyond the Resume)",
-                timeSlot: "1:30 PM - 2:00 PM",
+                talkTitle: "ما وراء السيرة الذاتية <span class='ltr-text'>(Beyond the Resume)</span>",
+                timeSlot: "<span class='ltr-text'>1:30 PM - 2:00 PM</span>",
                 points: [
                     "الجانب الإنساني في العمل: لماذا لا تكفي المهارات التقنية وحدها؟",
                     "دروس من الكتب والبودكاست: كيف تشكل القصص وعينا بالموارد البشرية.",
@@ -372,8 +150,8 @@
             "assar": {
                 name: "د. عصار",
                 title: "متحدث خبير",
-                talkTitle: "فخ المنطقة الآمنة (Beyond the Comfort Zone)",
-                timeSlot: "2:00 PM - 2:30 PM",
+                talkTitle: "فخ المنطقة الآمنة <span class='ltr-text'>(Beyond the Comfort Zone)</span>",
+                timeSlot: "<span class='ltr-text'>2:00 PM - 2:30 PM</span>",
                 points: [
                     "لماذا تشكل \"دائرة الراحة\" أكبر عائق أمام النسخة الأفضل منك؟",
                     "سيكولوجية التغيير: تحويل \"عدم الارتياح\" إلى مؤشر للنمو.",
@@ -383,8 +161,8 @@
             "roaa": {
                 name: "رؤى سمارة",
                 title: "متحدثة ملهمة",
-                talkTitle: "متجاوزةً التوقعات (Beyond Expectations)",
-                timeSlot: "2:30 PM - 3:00 PM",
+                talkTitle: "متجاوزةً التوقعات <span class='ltr-text'>(Beyond Expectations)</span>",
+                timeSlot: "<span class='ltr-text'>2:30 PM - 3:00 PM</span>",
                 points: [
                     "الفرق بين ما \"يتوقعه\" المجتمع منك وما \"تستطيعه\" أنت حقاً.",
                     "رفض القوالب الجاهزة لتصميم نسختك الفريدة والأفضل.",
@@ -405,10 +183,10 @@
             if (speakerId && speakersData[speakerId]) {
                 const data = speakersData[speakerId];
                 
-                document.getElementById('dynamic-talk-title').innerText = data.talkTitle;
+                document.getElementById('dynamic-talk-title').innerHTML = data.talkTitle;
                 document.getElementById('dynamic-speaker-name').innerText = data.name;
                 document.getElementById('dynamic-speaker-title').innerText = data.title;
-                document.getElementById('dynamic-time-slot').innerText = data.timeSlot;
+                document.getElementById('dynamic-time-slot').innerHTML = data.timeSlot;
                 
                 const pointsList = document.getElementById('dynamic-points');
                 data.points.forEach(point => {

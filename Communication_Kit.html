@@ -1,148 +1,25 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEDxZU: BEYOND Limits - Communication Kit</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&family=Montserrat:wght@700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --ted-red: #EB0028;
-            --black: #000000;
-            --white: #FFFFFF;
-            --grey: #f8f9fa;
-            --dark-grey: #222;
-        }
-
-        body {
-            font-family: 'Noto Sans Arabic', sans-serif;
-            background-color: var(--grey);
-            color: var(--black);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-        }
-
-        .header {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--ted-red);
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 900;
-        }
-
-        .header p {
-            color: var(--ted-red);
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 2px;
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            border-right: 5px solid var(--ted-red);
-            padding-right: 15px;
-        }
-
-        .section-title h2 {
-            font-size: 1.8rem;
-            margin: 0;
-            color: var(--black);
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-            margin-bottom: 40px;
-            border: 1px solid #eee;
-        }
-
-        .label {
-            display: inline-block;
-            background: var(--ted-red);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .content-box {
-            background: #fdfdfd;
-            border: 1px dashed #ccc;
-            padding: 20px;
-            border-radius: 8px;
-            position: relative;
-            white-space: pre-wrap;
-        }
-
-        .placeholder {
-            color: var(--ted-red);
-            font-weight: bold;
-        }
-
-        .visual-desc {
-            background: #eef2ff;
-            border-right: 4px solid #4f46e5;
-            padding: 15px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #3730a3;
-        }
-
-        .speaker-list {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="grey-theme">
 
-<body>
-
-    <div class="header">
+    <div class="comm-header">
         <h1>حقيبة التواصل الإعلامي</h1>
         <p>TEDxZU: BEYOND Limits</p>
     </div>
 
-    <div class="container">
+    <div class="comm-container">
 
         <!-- 1. Initial Invitations -->
-        <div class="section-title">
+        <div class="comm-section-title">
             <h2>1. رسائل الدعوة الأولية (Initial Invitations)</h2>
         </div>
 
@@ -214,7 +91,6 @@
             </div>
         </div>
 
-
         <div class="card">
             <div class="label">رسالة دعوة سريعة واحترافية</div>
             <div class="content-box">
@@ -237,11 +113,10 @@
 
     </div>
 
-    <footer>
+    <footer class="comm-footer">
         حقيبة التواصل الرقمية - مؤتمر TEDxZU &copy; 2026<br>
         الأفكار التي تستحق الانتشار
     </footer>
 
 </body>
-
 </html>

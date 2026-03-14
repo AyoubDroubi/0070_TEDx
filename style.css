@@ -1,0 +1,605 @@
+/* ==========================================================================
+   TEDxZU BEYOND Limits - Global Stylesheet (Premium Dark Mode)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Variables
+   -------------------------------------------------------------------------- */
+:root {
+    --ted-red: #EB0028;
+    --ted-red-dark: #b80020;
+    --black: #000000;
+    --dark-bg: #111111;
+    --card-bg: #222222;
+    --card-bg-hover: #2a2a2a;
+    --white: #FFFFFF;
+    --text-grey: #CCCCCC;
+    --border-color: #333333;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base Styles
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, .brand {
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+p, li, span {
+    color: var(--text-grey);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* RTL Parenthesis Fix */
+.ltr-text {
+    direction: ltr;
+    display: inline-block;
+    unicode-bidi: embed; /* Ensure proper embedding */
+}
+
+/* --------------------------------------------------------------------------
+   Navigation
+   -------------------------------------------------------------------------- */
+nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--ted-red);
+}
+
+/* --------------------------------------------------------------------------
+   Unified Buttons
+   -------------------------------------------------------------------------- */
+.ted-btn {
+    display: inline-block;
+    background-color: var(--ted-red);
+    color: var(--white) !important;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.ted-btn:hover {
+    background-color: var(--ted-red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(235, 0, 40, 0.3);
+}
+
+.ted-btn.secondary {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.ted-btn.secondary:hover {
+    background-color: var(--border-color);
+    box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   Unified Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--dark-bg)), url('Asset/Main.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px; /* Offset for fixed nav */
+}
+
+.hero-section.large {
+    height: 100vh;
+}
+
+.hero-section.medium {
+    height: 50vh;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    color: var(--white);
+}
+
+.hero-content .theme-tag, 
+.hero-content .subtitle {
+    color: var(--ted-red);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: var(--text-grey);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Unified Card Component (.ted-card)
+   -------------------------------------------------------------------------- */
+.ted-card {
+    background-color: var(--card-bg);
+    padding: 35px;
+    border-radius: 8px;
+    border-top: 4px solid var(--ted-red);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+a.ted-card:hover, 
+.ted-card.interactive:hover {
+    transform: translateY(-5px);
+    background-color: var(--card-bg-hover);
+    box-shadow: 0 12px 30px rgba(235, 0, 40, 0.15);
+}
+
+.ted-card .card-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.ted-card .card-subtitle {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 20px;
+    display: block;
+    font-weight: 600;
+}
+
+.ted-card .card-highlight {
+    font-size: 1.2rem;
+    color: var(--ted-red);
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.4;
+}
+
+.ted-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ted-card li {
+    position: relative;
+    padding-right: 25px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--text-grey);
+    line-height: 1.6;
+}
+
+.ted-card li::before {
+    content: '•';
+    position: absolute;
+    right: 0;
+    color: var(--ted-red);
+    font-size: 1.5rem;
+    line-height: 1;
+    top: 2px;
+}
+
+.card-action-text {
+    margin-top: auto;
+    padding-top: 20px;
+    color: var(--ted-red);
+    font-weight: bold;
+    text-align: left;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease;
+}
+
+a.ted-card:hover .card-action-text {
+    transform: translateX(-5px);
+}
+
+/* --------------------------------------------------------------------------
+   Specific Layouts
+   -------------------------------------------------------------------------- */
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    display: inline-block;
+    position: relative;
+    color: var(--white);
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--ted-red);
+}
+
+/* Vision Section (Index) */
+#vision {
+    padding: 100px 0;
+    background-color: var(--dark-bg);
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    text-align: right;
+}
+
+.vision-item h3 {
+    color: var(--ted-red);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Speakers Grid (Index) */
+#speakers {
+    padding: 100px 0;
+    background-color: #151515; /* Slightly different shade for contrast */
+}
+
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Timeline (Schedule) */
+.schedule-section {
+    padding: 100px 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+.timeline-item:nth-child(odd):not(.break-item) {
+    right: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even):not(.break-item) {
+    right: 50%;
+    text-align: left;
+}
+
+.timeline-item:nth-child(even):not(.break-item) .ted-card {
+    border-top: 4px solid var(--ted-red); /* Keep top border consistent */
+}
+
+.timeline-item:nth-child(even):not(.break-item) .card-action-text {
+    text-align: right;
+}
+
+.timeline-item:nth-child(even):not(.break-item) a.ted-card:hover .card-action-text {
+    transform: translateX(5px);
+}
+
+.timeline-item:nth-child(even):not(.break-item) ul {
+    text-align: right;
+    direction: rtl;
+}
+
+.timeline-item:not(.break-item)::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: var(--ted-red);
+    border: 4px solid var(--dark-bg);
+    border-radius: 50%;
+    top: 45px; /* Adjust based on card padding */
+    z-index: 1;
+    box-shadow: 0 0 0 2px var(--ted-red);
+}
+
+.timeline-item:nth-child(odd):not(.break-item)::after {
+    left: -11px;
+}
+
+.timeline-item:nth-child(even):not(.break-item)::after {
+    right: -11px;
+}
+
+.time-badge {
+    display: inline-block;
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    border: 1px solid var(--border-color);
+}
+
+.timeline-item.break-item {
+    width: 100%;
+    right: 0;
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline-item.break-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: dashed 2px var(--border-color);
+    z-index: 0;
+}
+
+.break-content {
+    background-color: var(--ted-red);
+    color: var(--white);
+    padding: 15px 40px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 900;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 20px rgba(235, 0, 40, 0.4);
+}
+
+.break-time {
+    border-right: 2px solid rgba(255,255,255,0.3);
+    padding-right: 15px;
+}
+
+/* Lecture Details Layout */
+.details-section {
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.lecture-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--white);
+    position: relative;
+    display: inline-block;
+}
+
+.lecture-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--ted-red);
+}
+
+.lecture-content ul li {
+    background: var(--card-bg);
+    padding: 25px 30px 25px 25px;
+    border-radius: 8px;
+    border-right: 4px solid var(--ted-red);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.lecture-content ul li:hover {
+    transform: translateX(-5px);
+    background-color: var(--card-bg-hover);
+}
+
+#error-msg {
+    display: none;
+    text-align: center;
+    padding: 150px 20px;
+}
+
+#error-msg h2 {
+    color: var(--ted-red);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+footer {
+    background-color: var(--black);
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+
+footer img {
+    height: 40px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+footer img:hover {
+    opacity: 1;
+}
+
+footer p {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+.footer-disclaimer {
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layouts
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+    .timeline::after {
+        right: 30px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-right: 70px;
+        padding-left: 20px;
+    }
+
+    .timeline-item:nth-child(odd):not(.break-item),
+    .timeline-item:nth-child(even):not(.break-item) {
+        right: 0;
+        text-align: right;
+    }
+
+    .timeline-item:nth-child(odd):not(.break-item)::after,
+    .timeline-item:nth-child(even):not(.break-item)::after {
+        right: 19px;
+        left: auto;
+    }
+    
+    .timeline-item.break-item {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .timeline-item:nth-child(even):not(.break-item) .card-action-text {
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(even):not(.break-item) a.ted-card:hover .card-action-text {
+        transform: translateX(-5px);
+    }
+
+    .details-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-content h1 { 
+        font-size: 2.5rem; 
+    }
+    .speakers-grid { 
+        grid-template-columns: 1fr; 
+    }
+}
