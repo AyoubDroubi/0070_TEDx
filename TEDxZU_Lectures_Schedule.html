@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدول المحاضرات - TEDxZU BEYOND Limits</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ted-red: #EB0028;
+            --black: #000000;
+            --white: #FFFFFF;
+            --dark-grey: #1a1a1a;
+            --medium-grey: #333333;
+            --light-grey: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
+            background-color: var(--dark-grey);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ted-red);
+        }
+
+        /* Hero Section with Parallax */
+        #hero {
+            height: 50vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(26,26,26,1)), url('Asset/Main.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.8rem;
+            color: var(--ted-red);
+            font-weight: 700;
+        }
+
+        /* Timeline Section */
+        .schedule-section {
+            padding: 80px 0;
+            background-color: var(--dark-grey);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 5px;
+            background-color: var(--ted-red);
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* The vertical line in the center */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--medium-grey);
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 50px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+
+        /* Items on the right side (RTL logic -> odd on right) */
+        .timeline-item:nth-child(odd):not(.break-item) {
+            right: 0;
+            text-align: right;
+        }
+
+        /* Items on the left side (RTL logic -> even on left) */
+        .timeline-item:nth-child(even):not(.break-item) {
+            right: 50%;
+            text-align: left;
+        }
+
+        /* The circular nodes on the timeline */
+        .timeline-item:not(.break-item)::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background-color: var(--ted-red);
+            border: 4px solid var(--dark-grey);
+            border-radius: 50%;
+            top: 35px;
+            z-index: 1;
+            box-shadow: 0 0 0 2px var(--ted-red);
+        }
+
+        .timeline-item:nth-child(odd):not(.break-item)::after {
+            left: -11px;
+        }
+
+        .timeline-item:nth-child(even):not(.break-item)::after {
+            right: -11px;
+        }
+
+        /* Timeline Content Card */
+        .timeline-content {
+            padding: 35px;
+            background-color: #222;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            border-right: 5px solid var(--ted-red);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .timeline-item:nth-child(even):not(.break-item) .timeline-content {
+            border-right: none;
+            border-left: 5px solid var(--ted-red);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-8px);
+            background-color: #2a2a2a;
+            box-shadow: 0 12px 30px rgba(235, 0, 40, 0.15);
+        }
+
+        .time-badge {
+            display: inline-block;
+            background-color: var(--medium-grey);
+            color: var(--white);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: 900;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            border: 1px solid #444;
+        }
+
+        .speaker-name {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .speaker-title {
+            color: #999;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .talk-title {
+            font-size: 1.3rem;
+            color: var(--ted-red);
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-grey);
+            line-height: 1.4;
+        }
+
+        .talk-details {
+            list-style: none;
+            padding: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even):not(.break-item) .talk-details {
+            text-align: right; /* Enforce RTL readability for left-side items */
+            direction: rtl;
+        }
+
+        .talk-details li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #d1d1d1;
+            line-height: 1.6;
+        }
+
+        .talk-details li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: var(--ted-red);
+            font-size: 1.5rem;
+            line-height: 1;
+            top: 2px;
+        }
+
+        .view-details-cue {
+            margin-top: 20px;
+            color: var(--ted-red);
+            font-weight: bold;
+            text-align: left;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:nth-child(even):not(.break-item) .view-details-cue {
+            text-align: right;
+        }
+        
+        .timeline-content:hover .view-details-cue {
+            transform: translateX(-5px);
+        }
+
+        .timeline-item:nth-child(even):not(.break-item) .timeline-content:hover .view-details-cue {
+            transform: translateX(5px);
+        }
+
+        /* Break Item Styling */
+        .timeline-item.break-item {
+            width: 100%;
+            right: 0;
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .timeline-item.break-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: dashed 2px var(--medium-grey);
+            z-index: 0;
+        }
+
+        .break-content {
+            background-color: var(--ted-red);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 20px rgba(235, 0, 40, 0.4);
+            font-family: 'Montserrat', 'Noto Sans Arabic', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid var(--medium-grey);
+            margin-top: 40px;
+        }
+
+        footer img {
+            height: 40px;
+            margin-bottom: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        footer img:hover {
+            opacity: 1;
+        }
+
+        footer p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 900px) {
+            .timeline::after {
+                right: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-right: 70px;
+                padding-left: 20px;
+            }
+
+            .timeline-item:nth-child(odd):not(.break-item),
+            .timeline-item:nth-child(even):not(.break-item) {
+                right: 0;
+                text-align: right;
+            }
+
+            .timeline-item:nth-child(odd):not(.break-item)::after,
+            .timeline-item:nth-child(even):not(.break-item)::after {
+                right: 19px;
+                left: auto;
+            }
+
+            .timeline-item:nth-child(even):not(.break-item) .timeline-content {
+                border-left: none;
+                border-right: 5px solid var(--ted-red);
+            }
+            
+            .timeline-item.break-item {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .timeline-item:nth-child(even):not(.break-item) .view-details-cue {
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even):not(.break-item) .timeline-content:hover .view-details-cue {
+                transform: translateX(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html">
+                <img src="Asset/logo-white.png" alt="TEDxZU Logo" class="logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#schedule">جدول الفعاليات</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Agenda & Lectures</h1>
+            <span class="subtitle">جدول المحاضرات والتفاصيل</span>
+        </div>
+    </section>
+
+    <!-- Schedule Timeline Section -->
+    <section id="schedule" class="schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>الجدول الزمني للحدث</h2>
+            </div>
+            
+            <div class="timeline">
+                
+                <!-- Speaker 1 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=haiel" class="timeline-content">
+                        <span class="time-badge">10:00 AM - 10:30 AM</span>
+                        <div class="speaker-name">د. هايل الخفاجة</div>
+                        <span class="speaker-title">عميد كلية تكنولوجيا المعلومات</span>
+                        <div class="talk-title">ما وراء المدرج الجامعي (Beyond the Lecture Hall)</div>
+                        <ul class="talk-details">
+                            <li>الجامعة ليست مجرد محطة للحصول على شهادة، بل هي "مسرّعة أعمال" شخصية.</li>
+                            <li>كيفية بناء "الهوية المهنية" قبل استلام ورقة التخرج.</li>
+                            <li>استثمار الفرص التقنية والبحثية لتجاوز حدود "الباحث عن عمل" إلى "صانع الفرص".</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- Speaker 2 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=mohammed" class="timeline-content">
+                        <span class="time-badge">10:30 AM - 11:00 AM</span>
+                        <div class="speaker-name">د. محمد الجعيدي</div>
+                        <span class="speaker-title">رئيس قسم الأمن السيبراني</span>
+                        <div class="talk-title">خلف الشاشة: حدود الوعي الرقمي (Beyond the Screen)</div>
+                        <ul class="talk-details">
+                            <li>لماذا نعتبر "الإنسان" هو أضعف وأقوى حلقة في الأمن السيبراني في آن واحد؟</li>
+                            <li>بناء "عقلية أمنية" في عصر الذكاء الاصطناعي وتجاوز فكرة كلمات المرور التقليدية.</li>
+                            <li>كيف نحمي حدودنا الخاصة في عالم رقمي لا يعترف بالحدود؟</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- Speaker 3 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=rawda" class="timeline-content">
+                        <span class="time-badge">11:00 AM - 11:30 AM</span>
+                        <div class="speaker-name">روضة الرماحي</div>
+                        <span class="speaker-title">أخصائية وباحثة في الجوانب النفسية</span>
+                        <div class="talk-title">الجدران غير المرئية (Beyond Inner Walls)</div>
+                        <ul class="talk-details">
+                            <li>تفكيك القيود النفسية الموروثة والمكتسبة التي تمنعنا من التجربة.</li>
+                            <li>سيكولوجية التحرر: الانطلاق في مسارات جديدة دون خوف من الفشل.</li>
+                            <li>تحويل العقل من سجن للمخاوف إلى فضاء للإبداع والنمو.</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- Speaker 4 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=issa" class="timeline-content">
+                        <span class="time-badge">11:30 AM - 12:00 PM</span>
+                        <div class="speaker-name">عيسى عساف</div>
+                        <span class="speaker-title">متحدث تحفيزي</span>
+                        <div class="talk-title">كيمياء التغيير (Beyond Negativity)</div>
+                        <ul class="talk-details">
+                            <li>فن إعادة تدوير "الطاقة السلبية" وتحويلها إلى وقود للإنجاز.</li>
+                            <li>المنهجية المثالية لإطلاق العنان للنفس بعيداً عن الإحباطات المحيطة.</li>
+                            <li>قصص واقعية عن لحظات التحول من الانغلاق السلبي إلى الانفتاح الإيجابي.</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- 30 Minute Break -->
+                <div class="timeline-item break-item">
+                    <div class="break-content">
+                        <span>☕ استراحة وتواصل</span>
+                        <span style="border-right: 2px solid rgba(255,255,255,0.3); padding-right: 15px;">12:00 PM - 12:30 PM</span>
+                    </div>
+                </div>
+
+                <!-- Speaker 5 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=ali" class="timeline-content">
+                        <span class="time-badge">12:30 PM - 1:00 PM</span>
+                        <div class="speaker-name">علي علوان</div>
+                        <span class="speaker-title">متحدث في تطوير الذات</span>
+                        <div class="talk-title">الانبثاق: القوة من رحم المعاناة (Beyond Hardship)</div>
+                        <ul class="talk-details">
+                            <li>كيف تكون الأزمات هي "المختبر الحقيقي" لإنتاج أقصى طاقات الإنسان.</li>
+                            <li>استراتيجيات الحفاظ على "أعلى جودة أداء" في ظل الظروف غير المريحة.</li>
+                            <li>تجاوز حدود "الضحية" إلى دور "القائد" لظروفه الخاصة.</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- Speaker 6 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=amr" class="timeline-content">
+                        <span class="time-badge">1:00 PM - 1:30 PM</span>
+                        <div class="speaker-name">د. عمرو المداذحة</div>
+                        <span class="speaker-title">خبير في التواصل والخطابة</span>
+                        <div class="talk-title">ما وراء الصمت: صوتك هو بصمتك (Beyond Silence)</div>
+                        <ul class="talk-details">
+                            <li>الارتجال والحديث أمام الجمهور ليس "موهبة" بل هو "قرار" بإثبات الوجود.</li>
+                            <li>كيف تكسر حدود الخجل لتصبح رسالتك مسموعة ومؤثرة.</li>
+                            <li>أدوات تقوية الشخصية من خلال التعبير الحر والخطابة الواثقة.</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- Speaker 7 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=dania" class="timeline-content">
+                        <span class="time-badge">1:30 PM - 2:00 PM</span>
+                        <div class="speaker-name">دانيا الغرايبة</div>
+                        <span class="speaker-title">متخصصة HR وصانعة محتوى - الكنبة مع فريودة</span>
+                        <div class="talk-title">ما وراء السيرة الذاتية (Beyond the Resume)</div>
+                        <ul class="talk-details">
+                            <li>الجانب الإنساني في العمل: لماذا لا تكفي المهارات التقنية وحدها؟</li>
+                            <li>دروس من الكتب والبودكاست: كيف تشكل القصص وعينا بالموارد البشرية.</li>
+                            <li>اكتشاف الشغف الحقيقي بعيداً عن القوالب الوظيفية الجامدة.</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- Speaker 8 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=assar" class="timeline-content">
+                        <span class="time-badge">2:00 PM - 2:30 PM</span>
+                        <div class="speaker-name">د. عصار</div>
+                        <span class="speaker-title">متحدث خبير</span>
+                        <div class="talk-title">فخ المنطقة الآمنة (Beyond the Comfort Zone)</div>
+                        <ul class="talk-details">
+                            <li>لماذا تشكل "دائرة الراحة" أكبر عائق أمام النسخة الأفضل منك؟</li>
+                            <li>سيكولوجية التغيير: تحويل "عدم الارتياح" إلى مؤشر للنمو.</li>
+                            <li>خطوات عملية للخروج من النمط التكراري والوصول لمرحلة الإنجاز القصوى.</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+                <!-- Speaker 9 -->
+                <div class="timeline-item">
+                    <a href="lecture_details.html?id=roaa" class="timeline-content">
+                        <span class="time-badge">2:30 PM - 3:00 PM</span>
+                        <div class="speaker-name">رؤى سمارة</div>
+                        <span class="speaker-title">متحدثة ملهمة</span>
+                        <div class="talk-title">متجاوزةً التوقعات (Beyond Expectations)</div>
+                        <ul class="talk-details">
+                            <li>الفرق بين ما "يتوقعه" المجتمع منك وما "تستطيعه" أنت حقاً.</li>
+                            <li>رفض القوالب الجاهزة لتصميم نسختك الفريدة والأفضل.</li>
+                            <li>تحويل ضغط التوقعات الخارجية إلى طاقة داخلية تدفعك لتجاوز حدودك.</li>
+                        </ul>
+                        <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="Asset/logo-white.png" alt="TEDxZU Logo">
+            <p>تم تطوير هذه الصفحة لمؤتمر TEDxZU: BEYOND Limits &copy; 2026</p>
+            <p style="font-size: 0.8rem; margin-top: 5px;">هذا الحدث مرخص بشكل مستقل من TED</p>
+        </div>
+    </footer>
+
+</body>
+</html>

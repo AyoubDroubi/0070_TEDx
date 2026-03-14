@@ -104,6 +104,7 @@
             border-radius: 4px;
             transition: 0.3s;
             text-transform: uppercase;
+            margin: 5px;
         }
 
         .cta-btn:hover {
@@ -176,6 +177,8 @@
             transition: 0.3s;
             display: flex;
             flex-direction: column;
+            text-decoration: none;
+            color: inherit;
         }
 
         .speaker-card:hover {
@@ -224,6 +227,20 @@
             color: var(--ted-red);
             font-weight: bold;
         }
+        
+        .view-details-cue {
+            margin-top: auto;
+            padding-top: 20px;
+            color: var(--ted-red);
+            font-weight: bold;
+            text-align: left;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        
+        .speaker-card:hover .view-details-cue {
+            transform: translateX(-5px);
+        }
 
         /* Footer */
         footer {
@@ -257,6 +274,11 @@
     <nav>
         <div class="container nav-content">
             <img src="Asset/logo-white.png" alt="TEDxZU Logo" class="logo">
+            <ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+                <li>
+                    <a href="TEDxZU_Lectures_Schedule.html" style="color: #fff; text-decoration: none; font-weight: bold; background: var(--ted-red); padding: 10px 20px; border-radius: 4px; transition: 0.3s;">عرض جدول المحاضرات</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -266,6 +288,7 @@
             <h1>BEYOND Limits</h1>
             <p>نحن لا نتحدث عن المستحيل، بل نتحدث عن المرحلة التي تلي المستحيل. انضم إلينا في رحلة استكشاف ما وراء الحدود في جامعة الزرقاء.</p>
             <a href="#speakers" class="cta-btn">اكتشف المتحدثين</a>
+            <a href="TEDxZU_Lectures_Schedule.html" class="cta-btn" style="background-color: #333;">عرض جدول المحاضرات</a>
         </div>
     </section>
 
@@ -294,7 +317,7 @@
             <h2>المتحدثون</h2>
             <div class="speakers-grid">
                 <!-- Speaker 1 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=haiel" class="speaker-card">
                     <div class="speaker-name">د. هايل الخفاجة</div>
                     <span class="speaker-title">عميد كلية تكنولوجيا المعلومات</span>
                     <div class="talk-title">ما وراء المدرج الجامعي (Beyond the Lecture Hall)</div>
@@ -303,10 +326,11 @@
                         <li>كيفية بناء "الهوية المهنية" قبل استلام ورقة التخرج.</li>
                         <li>استثمار الفرص التقنية والبحثية لتجاوز حدود "الباحث عن عمل" إلى "صانع الفرص".</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 2 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=mohammed" class="speaker-card">
                     <div class="speaker-name">د. محمد الجعيدي</div>
                     <span class="speaker-title">رئيس قسم الأمن السيبراني</span>
                     <div class="talk-title">خلف الشاشة: حدود الوعي الرقمي (Beyond the Screen)</div>
@@ -315,10 +339,11 @@
                         <li>بناء "عقلية أمنية" في عصر الذكاء الاصطناعي وتجاوز فكرة كلمات المرور التقليدية.</li>
                         <li>كيف نحمي حدودنا الخاصة في عالم رقمي لا يعترف بالحدود؟</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 3 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=rawda" class="speaker-card">
                     <div class="speaker-name">روضة الرماحي</div>
                     <span class="speaker-title">أخصائية وباحثة في الجوانب النفسية</span>
                     <div class="talk-title">الجدران غير المرئية (Beyond Inner Walls)</div>
@@ -327,10 +352,11 @@
                         <li>سيكولوجية التحرر: الانطلاق في مسارات جديدة دون خوف من الفشل.</li>
                         <li>تحويل العقل من سجن للمخاوف إلى فضاء للإبداع والنمو.</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 4 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=issa" class="speaker-card">
                     <div class="speaker-name">عيسى عساف</div>
                     <span class="speaker-title">متحدث تحفيزي</span>
                     <div class="talk-title">كيمياء التغيير (Beyond Negativity)</div>
@@ -339,10 +365,11 @@
                         <li>المنهجية المثالية لإطلاق العنان للنفس بعيداً عن الإحباطات المحيطة.</li>
                         <li>قصص واقعية عن لحظات التحول من الانغلاق السلبي إلى الانفتاح الإيجابي.</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 5 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=ali" class="speaker-card">
                     <div class="speaker-name">علي علوان</div>
                     <span class="speaker-title">متحدث في تطوير الذات</span>
                     <div class="talk-title">الانبثاق: القوة من رحم المعاناة (Beyond Hardship)</div>
@@ -351,10 +378,11 @@
                         <li>استراتيجيات الحفاظ على "أعلى جودة أداء" في ظل الظروف غير المريحة.</li>
                         <li>تجاوز حدود "الضحية" إلى دور "القائد" لظروفه الخاصة.</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 6 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=amr" class="speaker-card">
                     <div class="speaker-name">د. عمرو المداذحة</div>
                     <span class="speaker-title">خبير في التواصل والخطابة</span>
                     <div class="talk-title">ما وراء الصمت: صوتك هو بصمتك (Beyond Silence)</div>
@@ -363,10 +391,11 @@
                         <li>كيف تكسر حدود الخجل لتصبح رسالتك مسموعة ومؤثرة.</li>
                         <li>أدوات تقوية الشخصية من خلال التعبير الحر والخطابة الواثقة.</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 7 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=dania" class="speaker-card">
                     <div class="speaker-name">دانيا الغرايبة</div>
                     <span class="speaker-title">متخصصة HR وصانعة محتوى - الكنبة مع فريودة</span>
                     <div class="talk-title">ما وراء السيرة الذاتية (Beyond the Resume)</div>
@@ -375,10 +404,11 @@
                         <li>دروس من الكتب والبودكاست: كيف تشكل القصص وعينا بالموارد البشرية.</li>
                         <li>اكتشاف الشغف الحقيقي بعيداً عن القوالب الوظيفية الجامدة.</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 8 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=assar" class="speaker-card">
                     <div class="speaker-name">د. عصار</div>
                     <span class="speaker-title">متحدث خبير</span>
                     <div class="talk-title">فخ المنطقة الآمنة (Beyond the Comfort Zone)</div>
@@ -387,10 +417,11 @@
                         <li>سيكولوجية التغيير: تحويل "عدم الارتياح" إلى مؤشر للنمو.</li>
                         <li>خطوات عملية للخروج من النمط التكراري والوصول لمرحلة الإنجاز القصوى.</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
 
                 <!-- Speaker 9 -->
-                <div class="speaker-card">
+                <a href="lecture_details.html?id=roaa" class="speaker-card">
                     <div class="speaker-name">رؤى سمارة</div>
                     <span class="speaker-title">متحدثة ملهمة</span>
                     <div class="talk-title">متجاوزةً التوقعات (Beyond Expectations)</div>
@@ -399,7 +430,8 @@
                         <li>رفض القوالب الجاهزة لتصميم نسختك الفريدة والأفضل.</li>
                         <li>تحويل ضغط التوقعات الخارجية إلى طاقة داخلية تدفعك لتجاوز حدودك.</li>
                     </ul>
-                </div>
+                    <div class="view-details-cue">عرض التفاصيل &larr;</div>
+                </a>
             </div>
         </div>
     </section>
